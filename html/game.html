@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Play a quiz</title>
+   <link rel="stylesheet" href="../css/utility.css">
+   <style>
+      body {
+         text-align: left;
+      }
+
+      .ctr {
+         margin-top: 10rem;
+      }
+
+      #choiceCtr {
+         margin-top: 2rem;
+         font-size: 1.3rem;
+      }
+
+      span {
+         padding: .98rem 1.4rem;
+         margin-right: 1rem;
+         color: #fff;
+         background-color: rgb(126, 154, 206);
+         pointer-events: none;
+      }
+      .choices {
+         /* outline: 1px solid red; */
+         background-color: #fff;
+         padding: 1rem 0;
+      }
+
+      .choices + .choices {
+         margin-top: .8rem;
+      }
+
+      .choices:hover {
+         cursor: pointer;
+         opacity: .7;
+      }
+
+      .choice {
+         display: inline;
+         color: black;
+         pointer-events: none;
+      }
+
+      .flex {
+         justify-content: space-between;
+         flex-direction: row;
+         margin-bottom: 2rem;
+      }
+
+      .flex h2 {
+         margin-top: .5rem;
+         font-size: 2.5rem;
+         color: rgb(14, 72, 180);
+      }
+
+      .correct {
+         background-color: green;
+      }
+
+      .incorrect {
+         background-color: red;
+      }
+
+      .progress-bar {
+         border: 3px solid rgb(14, 72, 180);
+         height: 2rem;
+         width: 170%;
+         margin-top: 1rem;
+      }
+
+      #progress {
+         background-color: rgb(14, 72, 180);
+         width: 0%;
+         height: 100%;
+      }
+   </style>
+</head>
+<body>
+   <main class="ctr">
+      <div class="flex">
+         <div>
+            <p id="questNo" >Question 1/7</p>
+            <div class="progress-bar">
+               <div id="progress"></div>
+            </div>
+         </div>
+         <div>
+            <p>Score</p>
+            <h2 id="score">0</h2>
+         </div>
+      </div>
+      <h1 id="question">This is a question</h1>
+      <div id='choiceCtr'>
+         <div class="choices" data-number = '1'><span>A</span><p class="choice">sfd</p></div>
+         <div class="choices" data-number = '2'><span>B</span><p class="choice">dafa</p></div>
+         <div class="choices" data-number = '3'><span>C</span><p class="choice">dsfa</p></div>
+         <div class="choices" data-number = '4'><span>D</span><p class="choice">adsf</p></div>
+      </div>
+   </main>
+   <script src="../js/game.js"></script>
+</body>
+</html>
