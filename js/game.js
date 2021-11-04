@@ -5,17 +5,12 @@ const questNO = document.getElementById('questNo');
 const score = document.getElementById('score');
 const progress = document.getElementById('progress');
 
-
-questions = [];
 fetch("https://opentdb.com/api.php?amount=7&category=31&difficulty=easy&type=multiple")
 .then(x => {
    return x.json();
 })
 .then(q => {
    let questions = q.results;
-   questions.forEach((que) => {
-      // console.log(que.question);
-   });
    let quest = questions.map((que) =>{
       let choice = [], temp = [...que.incorrect_answers, que.correct_answer];
       for(let i=0; i<4; i++) {
@@ -28,10 +23,11 @@ fetch("https://opentdb.com/api.php?amount=7&category=31&difficulty=easy&type=mul
       obj["question"] = que.question;
       obj["choices"] = choice;
       obj["answer"] = que.correct_answer;
-      // console.log(que.question);
       return obj;
    });
-   console.log(quest);
+   return quest;
+})
+.then(quest => {
    createMCQ(quest[0]);
    startGame(quest)
    progress.style.width = `${(i/maxQuest)*100}%`;
@@ -50,7 +46,6 @@ function createMCQ(quest) {
    let j = 0;
    question.innerHTML = quest.question;
    Array.from(choices).forEach(function(choice) {
-      // let prop = 'choice' + j;
       choice.innerText = quest["choices"][j];
       j++;
    });
